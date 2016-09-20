@@ -41,8 +41,9 @@ public class CurrentConditionsDisplay extends JFrame implements Observer {
        */
       @Override
       public void windowClosing(WindowEvent e) {
-        System.out.println("Removed observer");
-        observable.deleteObservers();
+    	  observable.deleteObserver(CurrentConditionsDisplay.this);
+    	  System.out.print("Removed observer.");
+    	  System.out.println("Number of observers:" + observable.countObservers());
       }
     });
     this.pack();
